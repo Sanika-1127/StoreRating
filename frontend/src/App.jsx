@@ -11,11 +11,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Index />} />       {/* Landing page */}
-        <Route path="/login" element={<Login />} />  {/* Login page */}
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/user" element={<UserDashboard />} />
-        <Route path="/owner" element={<StoreOwnerDashboard />} />
+        <Route path="/Login" element={<Login />} />  {/* Login page */}
+        <Route path="/Signup" element={<Signup />} />
+        <Route path="/Admin" element={<AdminDashboard />} />
+        <Route path="/User" element={<UserDashboard />} />
+        <Route path="/Owner" element={<StoreOwnerDashboard />} />
       </Routes>
     </BrowserRouter>
   );
