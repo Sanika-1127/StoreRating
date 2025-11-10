@@ -1,6 +1,6 @@
-const Store = require("../models/Store");
-const Rating = require("../models/Rating");
-const User = require("../models/User");
+const Store = require("../models/store");
+const Rating = require("../models/rating");
+const User = require("../models/user");
 
 // List stores with average rating
 exports.listStores = async (req, res) => {

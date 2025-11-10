@@ -1,8 +1,8 @@
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
-const User = require("../models/User");
-const Store = require("../models/Store");
-const Rating = require("../models/Rating");
+const User = require("../models/user");
+const Store = require("../models/store");
+const Rating = require("../models/rating");
 
 // ✅ Validate User Input
 function validateUserInput({ name, address, password, email }) {
