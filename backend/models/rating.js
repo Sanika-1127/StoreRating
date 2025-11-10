@@ -1,23 +1,25 @@
-"use strict";
-const { Model } = require("sequelize");
+const mongoose = require("mongoose");
 
-module.exports = (sequelize, DataTypes) => {
-  class Rating extends Model {
-    static associate(models) {
-      Rating.belongsTo(models.User, { foreignKey: "userId" });
-      Rating.belongsTo(models.Store, { foreignKey: "storeId" });
-    }
-  }
-  Rating.init(
-    {
-      rating: DataTypes.INTEGER,
-      userId: DataTypes.INTEGER,
-      storeId: DataTypes.INTEGER,
+const RatingSchema = new mongoose.Schema(
+  {
+    rating: {
+      type: Number,
+      required: true,
+      min: 1,
+      max: 5,
     },
-    {
-      sequelize,
-      modelName: "Rating",
-    }
-  );
-  return Rating;
-};
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User", // Reference to User model
+      required: true,
+    },
+    storeId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Store", // Reference to Store model
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model("Rating", RatingSchema);

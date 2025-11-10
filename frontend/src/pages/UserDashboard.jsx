@@ -102,60 +102,63 @@ export default function UserDashboard() {
           }}
         >
           {stores.map((s) => (
-            <div
-              key={s.id}
-              className="card"
-              style={{
-                flex: "0 0 calc(50% - 10px)", 
-                boxSizing: "border-box",
-                padding: "20px",
-                borderRadius: "10px",
-                backgroundColor: "#1e1e1e",
-                color: "white",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.4)",
-              }}
-            >
-              <h3>{s.name}</h3>
-              <p>{s.address}</p>
-              <p>⭐ Average Rating: {s.averageRating || "No ratings yet"}</p>
+  <div
+    key={s._id}
+    className="card"
+    style={{
+      flex: "0 0 calc(50% - 10px)",
+      boxSizing: "border-box",
+      padding: "20px",
+      borderRadius: "10px",
+      backgroundColor: "#1e1e1e",
+      color: "white",
+      boxShadow: "0 4px 12px rgba(0,0,0,0.4)",
+    }}
+  >
+    <h3>{s.name}</h3>
+    <p>{s.address}</p>
+    <p>⭐ Average Rating: {s.averageRating || "No ratings yet"}</p>
 
-              <select
-                value={ratings[s.id] || ""}
-                onChange={(e) => setRatings({ ...ratings, [s.id]: e.target.value })}
-                style={{
-                  width: "100%",
-                  marginBottom: "8px",
-                  padding: "8px",
-                  borderRadius: "6px",
-                  border: "1px solid #444",
-                  backgroundColor: "#2a2a2a",
-                  color: "white",
-                }}
-              >
-                <option value="">Select rating</option>
-                <option value="1">⭐ 1</option>
-                <option value="2">⭐⭐ 2</option>
-                <option value="3">⭐⭐⭐ 3</option>
-                <option value="4">⭐⭐⭐⭐ 4</option>
-                <option value="5">⭐⭐⭐⭐⭐ 5</option>
-              </select>
+    <select
+      value={ratings[s._id] || ""}
+      onChange={(e) =>
+        setRatings({ ...ratings, [s._id]: e.target.value })
+      }
+      style={{
+        width: "100%",
+        marginBottom: "8px",
+        padding: "8px",
+        borderRadius: "6px",
+        border: "1px solid #444",
+        backgroundColor: "#2a2a2a",
+        color: "white",
+      }}
+    >
+      <option value="">Select rating</option>
+      <option value="1">⭐ 1</option>
+      <option value="2">⭐⭐ 2</option>
+      <option value="3">⭐⭐⭐ 3</option>
+      <option value="4">⭐⭐⭐⭐ 4</option>
+      <option value="5">⭐⭐⭐⭐⭐ 5</option>
+    </select>
 
-              <button
-                onClick={() => handleRate(s.id)}
-                style={{
-                  width: "100%",
-                  padding: "10px",
-                  borderRadius: "6px",
-                  border: "none",
-                  backgroundColor: "#4CAF50",
-                  color: "white",
-                  cursor: "pointer",
-                }}
-              >
-                Submit Rating
-              </button>
-            </div>
-          ))}
+    <button
+      onClick={() => handleRate(s._id)}
+      style={{
+        width: "100%",
+        padding: "10px",
+        borderRadius: "6px",
+        border: "none",
+        backgroundColor: "#4CAF50",
+        color: "white",
+        cursor: "pointer",
+      }}
+    >
+      Submit Rating
+    </button>
+  </div>
+))}
+
         </div>
       </div>
     </div>
